@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import User from "../models/User";
-import Token from "../models/Token";
+const Token = require('../models/Token');
 import * as bcrypt from "bcrypt";
 import helpers from "../untils/helpers";
 import { OAuth2Client } from "google-auth-library";
