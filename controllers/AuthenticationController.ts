@@ -333,7 +333,7 @@ class AuthenticationController {
                 { msg: "This account has been disabled, please contact hotline 18001008" }
               );
           }
-          let resToken = "";
+          let resToken;
           const existingToken = await Token.findOne({ userId: user.userId });
 
           if (existingToken) {
