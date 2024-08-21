@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node ./bin/www.js"
+    "start": "node ./dist/bin/www.js"
   },
   "dependencies": {
     "@vonage/server-sdk": "^3.15.0",
