@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 import { Request, Response, NextFunction } from 'express';
-import Token from '../models/Token';
+const Token = require('../models/Token');
 
 const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
   // Lấy token từ header Authorization
