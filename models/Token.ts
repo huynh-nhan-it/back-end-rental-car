@@ -6,6 +6,5 @@ const TokenSchema: Schema = new Schema({
   createdAt: { type: Date, default: Date.now, expires: '10d' } // Token hết hạn sau 10 ngày
 });
 
-
 export default mongoose.model('Token', TokenSchema);
 
