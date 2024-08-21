@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon"
+    "build": "tsc",
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
     "@vonage/server-sdk": "^3.15.0",
