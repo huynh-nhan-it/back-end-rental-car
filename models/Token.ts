@@ -1,11 +1,5 @@
 import { mongoose, Schema } from "../untils/utilities_import";
 
-interface IToken extends Document {
-  userId: string;
-  token: string;
-  createdAt: Date;
-}
-
 const TokenSchema: Schema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   token: { type: String, required: true },
@@ -13,5 +7,5 @@ const TokenSchema: Schema = new Schema({
 });
 
 
-export default mongoose.model<IToken>('Token', TokenSchema);
+export default mongoose.model('Token', TokenSchema);
 
