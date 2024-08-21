@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { mongoose, Schema } from "../untils/utilities_import";
 
-export interface IToken extends Document {
+interface IToken extends Document {
   userId: string;
   token: string;
   createdAt: Date;
@@ -12,6 +12,6 @@ const TokenSchema: Schema = new Schema({
   createdAt: { type: Date, default: Date.now, expires: '10d' } // Token hết hạn sau 10 ngày
 });
 
-const Token = mongoose.model<IToken>('Token', TokenSchema);
 
-export default Token;
+export default mongoose.model<IToken>('Token', TokenSchema);
+
