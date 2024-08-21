@@ -1,0 +1,17 @@
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface IToken extends Document {
+  userId: string;
+  token: string;
+  createdAt: Date;
+}
+
+const TokenSchema: Schema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  token: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now, expires: '10d' } // Token hết hạn sau 10 ngày
+});
+
+const Token = mongoose.model<IToken>('Token', TokenSchema);
+
+export default Token;
