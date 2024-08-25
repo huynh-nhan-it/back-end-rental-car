@@ -47,6 +47,8 @@ class UserController {
 
   getMessages: (req: Request, res: Response, next: NextFunction) => void;
 
+  getPromotions: (req: Request, res: Response, next: NextFunction) => void;
+
   saltRounds: number = 10;
 
   constructor() {
@@ -70,6 +72,27 @@ class UserController {
         res.status(500).send({msg: error.message});
       }
     };
+
+    this.getPromotions = async (req: Request, res: Response) => {
+      try {
+        const { userId } = req.params;
+        const user = await User.findOne({
+          userId: helpers.convertStringToObjectId(userId),
+        })
+        .populate({
+          path: 'promotions',
+          match: { isActive: true },
+        });
+
+        if (user) {
+          res.status(200).send(user.promotions);
+        } else {
+          res.status(401).send({msg: "User not found"});
+        }
+      } catch (error: any) {
+        res.status(500).send({msg: error.message});
+      }
+    }
 
     this.updateStandardInFormation = async (req: Request, res: Response) => {
       try {

@@ -16,6 +16,8 @@ const fields = [
 
 router.get('/infor/:userId', AuthenToken, UserController.getInFormation);
 
+router.get('/promotions/:userId', AuthenToken, UserController.getPromotions);
+
 router.put('/updateInforStandard', AuthenToken, upload.single('avatar'), UserController.updateStandardInFormation);
 
 router.put('/updateLicense', AuthenToken, upload.fields(fields), UserController.updateLicense);
