@@ -415,9 +415,13 @@ class AuthenticationController {
             { token: token, createdAt: new Date() },
             { upsert: true, new: true }
           );
-
           req.session.user = user;
-          return res.status(200).send("Login successfully!");
+          return res.status(200).send({
+            msg: "Login successfully!",
+            data: {
+              userId: user.userId
+            },
+          });
         }
       } catch (error: any) {
         return res.status(500).send({ msg: error.message });
